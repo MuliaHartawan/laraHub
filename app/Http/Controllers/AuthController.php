@@ -12,10 +12,12 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        return view ('welcome');
+        $namaDepan = $request->input('fname');
+        $namaBelakang = $request->input('lname');
+        return view ('welcome', ['namaDepan' => $namaDepan, 'namaBelakang' => $namaBelakang]);
     }
 
     /**
@@ -26,7 +28,7 @@ class AuthController extends Controller
     public function create()
     {
         //
-        $name = "Mulia Hartawan N";
+    
         return view ('form');
 
     }
